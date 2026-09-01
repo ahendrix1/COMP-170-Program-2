@@ -90,7 +90,7 @@ public class CostCalc {
         // DETERMINE ESTIMATED COST BASED ON WEIGHT AND NUMBER OF DAYS
         cost = cost * days;
         // DETERMINE IF ESTIMATED COST RECEIVE A DISCOUNT
-        if (cost < 165) {
+        if (cost > 165) {
             cost = cost - (cost * DISCNT);
         }
         // DETERMINE DOGS BOARDING GROUP BASED ON AGE
@@ -114,6 +114,19 @@ public class CostCalc {
         }
 
         // OUTUT SUMMARY OF DOG INFO. AND ESTIMATED COST
+        System.out.println(" \n ====================== \n SUMMARY \n ======================");
+        System.out.println("NAME: " + name);
+        System.out.println("BREED: " + breed);
+        System.out.println("DAYS: " + days);
+        System.out.println("WEIGHT: " + weight);
+        System.out.println("GROUP: " + group);
+
+        if (cost % 5 != 0) {
+            System.out.println("\n You qualify for a discount.");
+        }
+        System.out.println("COST: " + cost);
+
+        sc.close();
 
     }
 }
