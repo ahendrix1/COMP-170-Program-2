@@ -23,45 +23,97 @@
     Requirement 5 - Program is submitted by the due date listed and pushed to assigned GitHub Repository; 
                     Repository contains a minimum of three commits.
 	
-    [REPLACE MY INFORMATION WITH YOURS]
-    Course: COMP 170, Spring 1 2023
-    System: Visual Studio Code, Windows 10
-    Author: C. Fulton
+
+    Course: COMP 170, Fall 1 2026
+    System: GNU/Linux
+    Author: Avery Hendrix
 */
 
 //IMPORT STATEMENTS
 
+import java.util.Scanner;
 
 public class CostCalc {
     public static void main(String[] args) throws Exception {
-        //DECLARATIONS 
+        // DECLARATIONS
 
+        final int FEESML = 45;
+        final int FEEMID = 65;
+        final int FEELRG = 85;
+        final int FEEXXL = 100;
 
-        //INSTANTIATE SCANNER OBJECT
+        final int WGTSML = 0;
+        final int WGTMID = 15;
+        final int WGTLRG = 31;
+        final int WFTXXL = 81;
 
+        final double DISCNT = 0.02;
 
+        String name, breed, group;
+        int age, weight, days;
+        Double cost = 0.0;
 
-        //WELCOME MESSAGE 
-        System.out.println("Welcome to MPLS Dog Boarding cost calculator, this application will generate a summary of cost. ");
+        // INSTANTIATE SCANNER OBJECT
+        Scanner sc = new Scanner(System.in);
 
-        //OUTPUT + INPUT OF DOG INFORMATION
+        // WELCOME MESSAGE
+        System.out.println(
+                "Welcome to MPLS Dog Boarding cost calculator, this application will generate a summary of cost. ");
+        System.out.println("");
 
+        // OUTPUT + INPUT OF DOG INFORMATION
+        System.out.print("Enter dog name: ");
+        name = sc.nextLine();
 
-        //LOGIC TO DETERMINE ESTIMATED COST BASED ON WEIGHT
+        System.out.print("Enter dog breed: ");
+        breed = sc.nextLine();
 
+        System.out.print("Enter dog weight: ");
+        weight = sc.nextInt();
 
-        //DETERMINE ESTIMATED COST BASED ON WEIGHT AND NUMBER OF DAYS
+        System.out.print("Enter dog age: ");
+        age = sc.nextInt();
 
+        System.out.print("Enter number of days: ");
+        days = sc.nextInt();
+        // LOGIC TO DETERMINE ESTIMATED COST BASED ON WEIGHT
+        if (weight > WGTSML) {
+            cost = (double) FEESML;
+        } else if (weight > WGTMID) {
+            cost = (double) FEEMID;
+        } else if (weight > WGTLRG) {
+            cost = (double) FEELRG;
+        } else if (weight > WFTXXL) {
+            cost = (double) FEEXXL;
+        }
 
-        //DETERMINE IF ESTIMATED COST RECEIVE A DISCOUNT
+        // DETERMINE ESTIMATED COST BASED ON WEIGHT AND NUMBER OF DAYS
+        cost = cost * days;
+        // DETERMINE IF ESTIMATED COST RECEIVE A DISCOUNT
+        if (cost < 165) {
+            cost = cost - (cost * DISCNT);
+        }
+        // DETERMINE DOGS BOARDING GROUP BASED ON AGE
+        //
+        switch (age) {
+            case 0:
+                group = "BLUE";
+                break;
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                group = "ORANGE";
+                break;
+            case 5:
+                group = "RED";
+                break;
+            default:
+                group = "GREEN";
+                break;
+        }
 
-
-        //DETERMINE DOGS BOARDING GROUP BASED ON AGE
-
-
-        //OUTUT SUMMARY OF DOG INFO. AND ESTIMATED COST
-
-
+        // OUTUT SUMMARY OF DOG INFO. AND ESTIMATED COST
 
     }
 }
