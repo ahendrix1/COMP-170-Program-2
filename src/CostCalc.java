@@ -89,15 +89,12 @@ public class CostCalc {
         }
         // DETERMINE ESTIMATED COST BASED ON WEIGHT AND NUMBER OF DAYS
         cost = cost * days;
-        System.out.println(cost);
         // DETERMINE IF ESTIMATED COST RECEIVE A DISCOUNT
 
         if (cost > 165) {
             total = cost * 0.98;
         }
-
-        System.out.println(cost);
-        System.out.println(total);
+		
         // DETERMINE DOGS BOARDING GROUP BASED ON AGE
         switch (age) {
             case 0:
